@@ -6,7 +6,9 @@ import path from 'path';
 
 const app = express();
 
-mongoose.connect('mongodb://localhost:27017/sample');
+var mongoURI = "mongodb://admin:admin@ds131061.mlab.com:31061/heroku_73m73m1d";
+
+mongoose.connect(mongoURI);
 const db = mongoose.connection;
 db.on('error', () => console.log('Error connecting mongodb'))
 .once('open', () => console.log('Successfully connected to DB'));
